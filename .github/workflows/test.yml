@@ -7,6 +7,7 @@ jobs:
       # checkout the code from github
       - name: get code from github
         uses: actions/checkout@v3
+
       # install nodejs
       - name: install dependencies
         uses: actions/setup-node@v3
