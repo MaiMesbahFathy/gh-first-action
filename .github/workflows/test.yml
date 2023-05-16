@@ -21,3 +21,28 @@ jobs:
       # run tests
       - name: run tests
         run: npm test
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      # checkout the code from github
+      - name: get code from github
+        uses: actions/checkout@v3
+
+      # install nodejs
+      - name: install dependencies
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # install dependencies
+      - name: install dependencies
+        run: npm install
+
+      # Build project
+      - name: build project
+        run: npm run build
+
+      # deploy to AWS
+      - name: deploy to AWS
+        run: echo "deploying to AWS"
